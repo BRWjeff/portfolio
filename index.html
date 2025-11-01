@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Alan Albuquerque F. Lopes - Desenvolvedor Web">
+    <title>Alan Albuquerque F. Lopes - Portfolio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="public/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Montserrat&family=Oswald:wght@500&family=Staatliches&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div id="landing-page" class="page fade-in">
+        <div class="page-landing">
+            <div class="page-landing-cover">
+                <img src="public/cover.jpeg" alt="cover">
+            </div>
+            <section class="page-landing-body">
+                <img src="public/profile_photo.png" class="profile-photo" alt="foto de Jefferson">
+                <h2 class="title">Jefferson Aivi Domingues</h2>
+                <p class="subtitle profile-card-subtitle">Comece onde você está, use o que você tem, faça o que você pode.</p>
+            </section>
+            <nav class="page-landing-nav">
+                <a href="https://github.com/BRWjeff" target="_blank" rel="noreferrer">
+                    <button class="button rounded" data-glow="github">
+                        <i class="fab fa-github"></i>
+                    </button>
+                </a>
+                <a href="https://www.linkedin.com/in/jefferson-aivi-domingues-a6891a208/" target="_blank" rel="noreferrer">
+                    <button class="button rounded" data-glow="linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </button>
+                </a>
+                <button class="button rounded" data-glow="projects" onclick="navigateTo('projects')">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <a href="mailto:odairjosedomingues@gmail.com" rel="noreferrer">
+                    <button class="button rounded" data-glow="contact">
+                        <i class="fas fa-envelope-open"></i>
+                    </button>
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Projects Page -->
+    <div id="projects-page" class="page fade-in" style="display: none;">
+        <div class="projects-carousel">
+            <button class="nav-arrow" onclick="previousProject()" aria-label="Projeto anterior">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="project-card">
+                <figure class="project-card-cover">
+                    <img id="project-cover" src="" alt="project cover">
+                </figure>
+                <section class="project-card-body">
+                    <h3 class="title" id="project-name"></h3>
+                    <article class="project-card-purpose">
+                        <h5 class="subtitle">Propósito</h5>
+                        <p id="project-purpose"></p>
+                    </article>
+                    <nav class="project-card-nav" id="project-tech"></nav>
+                    <footer class="project-card-footer" id="project-footer"></footer>
+                </section>
+            </div>
+
+            <button class="nav-arrow" onclick="nextProject()" aria-label="Próximo projeto">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <button class="back-button" onclick="navigateTo('landing')">
+            <i class="fas fa-home"></i> Voltar
+        </button>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact-page" class="page fade-in" style="display: none;">
+        <main class="contact-main">
+            <div class="contact-textContent">
+                <h3 class="title">Deixe uma mensagem!</h3>
+            </div>
+            <form class="contact-form" onsubmit="sendEmail(event)">
+                <div class="control has-icons-left">
+                    <input 
+                        class="input" 
+                        name="email" 
+                        type="email" 
+                        placeholder="contact.me@mail.com" 
+                        required
+                    >
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                </div>
+                <input 
+                    class="input" 
+                    name="name" 
+                    type="text" 
+                    placeholder="Seu nome" 
+                    required
+                >
+                <input 
+                    class="input" 
+                    name="subject" 
+                    type="text" 
+                    placeholder="Assunto"
+                >
+                <textarea 
+                    class="textarea" 
+                    name="message" 
+                    placeholder="Escreva sua mensagem" 
+                    required
+                ></textarea>
+                <button class="button send-btn" type="submit">Enviar</button>
+            </form>
+        </main>
+        <button class="back-button" onclick="navigateTo('landing')">
+            <i class="fas fa-home"></i> Voltar
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>
