@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionando...</title>
+    <script>
+        // GitHub Pages SPA redirect
+        (function() {
+            var l = window.location;
+            
+            // For URL like: https://brwjeff.github.io/portfolio/projects
+            // pathname will be: /portfolio/projects
+            // We want to redirect to: /portfolio/?p=/projects
+            
+            var path = l.pathname;
+            
+            // Find where '/portfolio' ends
+            var repoName = '/portfolio';
+            var repoIndex = path.indexOf(repoName);
+            
+            if (repoIndex !== -1) {
+                // Get the route after /portfolio
+                var route = path.substring(repoIndex + repoName.length);
+                
+                // If route is empty or just '/', don't redirect
+                if (route && route !== '/') {
+                    // Build redirect URL: /portfolio/?p=/projects
+                    var redirect = l.protocol + '//' + l.hostname + 
+                        (l.port ? ':' + l.port : '') +
+                        repoName + '/?p=' + route +
+                        (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+                        l.hash;
+                    
+                    window.location.replace(redirect);
+                }
+            }
+        })();
+    </script>
+</head>
+<body>
+    <p>Redirecionando...</p>
+</body>
+</html>
